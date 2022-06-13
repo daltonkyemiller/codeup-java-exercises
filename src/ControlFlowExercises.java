@@ -4,16 +4,23 @@ public class ControlFlowExercises {
     public static void main(String[] args) {
         int i = 5;
         while (i <= 15) {
-            System.out.println(i);
+            System.out.print(i + " ");
             i++;
         }
-        System.out.println("----------");
+        System.out.println("\n----------");
 
         long x = 2;
         do {
             System.out.println(x);
             x *= x;
         } while (x < 1000000);
+
+        System.out.println("----------");
+        int greatVariableName = 100;
+        do {
+            System.out.println(greatVariableName);
+            greatVariableName -= 5;
+        } while (greatVariableName >= -10);
 
         System.out.println("----------");
 
