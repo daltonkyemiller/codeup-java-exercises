@@ -39,6 +39,12 @@ public class MethodsExercises {
         return result;
     }
 
+    public static long calcFactorialRecursion(int num) {
+        if (num >= 1) return num * calcFactorialRecursion(num - 1);
+        else return 1;
+    }
+
+
     public static int calculateHighestFactorial() {
         int tester = 0;
         long cache = 1;
