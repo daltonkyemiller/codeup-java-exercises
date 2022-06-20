@@ -106,7 +106,7 @@ public class MoviesArray {
             new Movie("Guess Who's Coming To Dinner", "drama"),
             new Movie("Yankee Doodle Dandy", "musical")
     };
-    private static ArrayList<Movie> customMovies = new ArrayList<Movie>();
+    private static final ArrayList<Movie> customMovies = new ArrayList<Movie>();
 
 
     public static ArrayList<Movie> findAll() {
