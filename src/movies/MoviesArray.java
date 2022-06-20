@@ -1,8 +1,10 @@
 package movies;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MoviesArray {
-    public static Movie[] findAll() {
-        return new Movie[]{
+    private static Movie[] defaultMovies = new Movie[]{
             new Movie("Citizen Kane", "drama"),
             new Movie("Casablanca", "drama"),
             new Movie("The Godfather", "drama"),
@@ -20,7 +22,7 @@ public class MoviesArray {
             new Movie("Star Wars", "scifi"),
             new Movie("All About Eve", "drama"),
             new Movie("The African Queen", "drama"),
-            new Movie("Psycho" , "horror"),
+            new Movie("Psycho", "horror"),
             new Movie("Chinatown", "drama"),
             new Movie("One Flew Over The Cuckoo's Nest", "drama"),
             new Movie("The Grapes Of Wrath", "drama"),
@@ -103,6 +105,18 @@ public class MoviesArray {
             new Movie("Unforgiven", "drama"),
             new Movie("Guess Who's Coming To Dinner", "drama"),
             new Movie("Yankee Doodle Dandy", "musical")
-        };
+    };
+    private static ArrayList<Movie> customMovies = new ArrayList<Movie>();
+
+
+    public static ArrayList<Movie> findAll() {
+        ArrayList<Movie> allMovies = new ArrayList<Movie>(customMovies);
+        allMovies.addAll(Arrays.asList(defaultMovies));
+        return allMovies;
     }
+
+    public static void addMovie(Movie m) {
+        customMovies.add(m);
+    }
+
 }
