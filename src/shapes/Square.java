@@ -26,6 +26,4 @@ public class Square extends Quadrilateral {
     public double getArea() {
         return this.width * this.length;
     }
-
-
 }
