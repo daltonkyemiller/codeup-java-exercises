@@ -36,6 +36,15 @@ public class Input {
         }
     }
 
+    public int getInt(int min) {
+        int res = getInt();
+        if (res < min) {
+            System.out.printf("Input must be above %d\n", min);
+            return getInt(min);
+        }
+        return res;
+    }
+
     public int getInt(int min, int max) {
         int result = getInt();
         if (result < min || result > max) {

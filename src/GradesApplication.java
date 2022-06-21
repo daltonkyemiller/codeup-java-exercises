@@ -1,42 +1,51 @@
 import util.Input;
+import util.RandomDate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Set;
+import java.time.LocalDate;
+import java.util.*;
 
 public class GradesApplication {
+    public static HashMap<String, Student> students = new HashMap<>();
+
+    public static double getClassAverage() {
+        double total = 0;
+        for (Student student : students.values()) {
+            total += student.getGradeAverage();
+        }
+        return total / students.size();
+    }
+
     public static void main(String[] args) {
+        Random r = new Random();
         Input in = new Input();
 
-        HashMap<String, Student> students = new HashMap<String, Student>();
         Student dalton = new Student("Dalton");
-        dalton.addGrade(100);
-        dalton.addGrade(93);
-        dalton.addGrade(88);
-        dalton.addGrade(98);
+
         Student mark = new Student("Mark");
-        mark.addGrade(95);
-        mark.addGrade(84);
-        mark.addGrade(78);
-        mark.addGrade(100);
+
         Student elon = new Student("Elon");
-        elon.addGrade(95);
-        elon.addGrade(91);
-        elon.addGrade(99);
-        elon.addGrade(100);
+
         Student greg = new Student("Greg");
-        greg.addGrade(53);
-        greg.addGrade(26);
-        greg.addGrade(60);
-        greg.addGrade(15);
+
 
         students.put("daltonkyemiller", dalton);
         students.put("thezucker", mark);
         students.put("leavemeelone", elon);
         students.put("iamgreg_200", greg);
 
-        while (true) {
+        RandomDate randomDate = new RandomDate(LocalDate.of(1900, 1, 1), LocalDate.of(2022, 12, 31));
+
+        // 10 Random attendance records
+        students.forEach((user, student) -> {
+            for (int i = 0; i < 10; i++) {
+                student.addGrade(r.nextInt(50) + 50);
+                student.recordAttendance(randomDate.nextDate().toString(), r.nextInt(100) % 2 == 1 ? "A" : "P");
+            }
+        });
+
+        System.out.printf("The class average is: %.2f%%\n", getClassAverage());
+
+        do {
             System.out.println("Users: ");
             students.forEach((username, student) -> {
                 System.out.printf("| %s |\n", username);
@@ -53,9 +62,9 @@ public class GradesApplication {
             }
             System.out.printf("Name: %s - Username: %s\n", studentToFind.getName(), usernameToFind);
             System.out.printf("Current Average: %s\n", studentToFind.getGradeAverage());
+            System.out.printf("Current Attendence: %.2f%%\n", studentToFind.calcAttendence());
             System.out.println("Would you like to continue? [y/N]");
-            if (!in.yesNo()) break;
-        }
+        } while (in.yesNo());
 
     }
 }
