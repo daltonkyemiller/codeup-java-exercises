@@ -6,7 +6,7 @@ public class Grocery {
     private int quantity;
 
     public Grocery(String name, String category, int quantity) {
-        this.name = Normalize.capitalizeString(category);
+        this.name = Normalize.capitalizeString(name);
         this.quantity = quantity;
         this.category = Normalize.capitalizeString(category);
     }

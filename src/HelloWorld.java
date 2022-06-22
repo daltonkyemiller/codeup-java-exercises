@@ -3,6 +3,8 @@ public class HelloWorld {
         int myFavoriteNumber = 0;
         System.out.println(myFavoriteNumber);
 
+        System.out.println("Hello World!");
+
         String myString = "Dalton";
         System.out.println(myString);
 
@@ -11,15 +13,16 @@ public class HelloWorld {
 
 
         long myNumber = 123L;
-//         System.out.println(myNumber);
+        System.out.println(myNumber);
 
-//        int x = 5;
-//        System.out.println(++x);
-//        System.out.println(x);
+        int i = 5;
+        System.out.println(++i);
+        System.out.println(i);
 
-//        String theNumberThree = "three";
-//        Object o = theNumberThree;
-//        int three = (int) o;
+        String theNumberThree = "three";
+        Object o = theNumberThree;
+
+        int three = (int) o;
         int x = 10;
         int y = 2;
         x = x / y;

@@ -20,6 +20,7 @@ public class GroceryApp {
                     System.err.println("Sorry, there arent any groceries in your list");
                     continue;
                 }
+
                 groceries.sort(Comparator.comparing(Grocery::getCategory));
                 for (Grocery grocery : groceries) {
                     System.out.printf("%s - %s - %d\n", grocery.getCategory(), grocery.getName(), grocery.getQuantity());
