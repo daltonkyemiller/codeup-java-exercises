@@ -28,10 +28,10 @@ public class Input {
 
     public int getInt() {
         try {
-            return scanner.nextInt();
-        } catch (InputMismatchException e) {
-            System.err.println("Input has to be a number.");
-            scanner.nextLine();
+            return Integer.parseInt(getString());
+        } catch (NumberFormatException e) {
+            System.err.println("Input has to be a number");
+            clearCache();
             return getInt();
         }
     }
@@ -56,12 +56,13 @@ public class Input {
 
     public double getDouble() {
         try {
-            return scanner.nextDouble();
-        } catch (InputMismatchException e) {
-            System.err.println("Input has to be a number.");
-            scanner.nextLine();
+            return Double.parseDouble(getString());
+        } catch (NumberFormatException e) {
+            System.err.println("Input has to be a number");
+            clearCache();
             return getDouble();
         }
+
     }
 
     public double getDouble(double min, double max) {

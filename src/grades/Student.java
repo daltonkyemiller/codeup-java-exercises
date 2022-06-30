@@ -1,3 +1,5 @@
+package grades;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -26,7 +28,7 @@ public class Student {
         attendence.put(date, value);
     }
 
-    public double calcAttendence() {
+    public double calcAttendance() {
         double absences = 0;
         double totalDays = attendence.size();
         for (String val : attendence.values()) {

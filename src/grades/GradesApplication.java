@@ -1,3 +1,5 @@
+package grades;
+
 import util.Input;
 import util.RandomDate;
 
@@ -62,7 +64,7 @@ public class GradesApplication {
             }
             System.out.printf("Name: %s - Username: %s\n", studentToFind.getName(), usernameToFind);
             System.out.printf("Current Average: %s\n", studentToFind.getGradeAverage());
-            System.out.printf("Current Attendence: %.2f%%\n", studentToFind.calcAttendence());
+            System.out.printf("Current Attendence: %.2f%%\n", studentToFind.calcAttendance());
             System.out.println("Would you like to continue? [y/N]");
         } while (in.yesNo());
 
